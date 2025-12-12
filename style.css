@@ -44,11 +44,18 @@ body {
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: 0.3s;
+    transition: 0.2s linear;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px 1px #6e6e6e;
 }
 
 .nav-links a:hover {
     color: #9affc7;
+    text-decoration: none;
+    border: solid 3px #6e6e6e;
+    background-color: transparent;
 }
 
 /* HERO */
