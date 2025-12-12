@@ -1,29 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenCode | Contacto</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul id="list-head">
-                <li class="list-head-item">
-                    <a href="index.html" class="enlace-head">Inicio</a>
-                </li>
-                <li class="list-head-item">
-                    <a href="productos.html" class="enlace-head">Productos</a>
-                </li>
-                <li class="list-head-item">
-                    <a href="contacto.html" class="enlace-head">Contacto</a>
-                </li>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">GreenCode</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
-    <main></main>
+    
+    <main>
+       
+        <section class="contact-info">
+            <h2>📞 Información de Contacto</h2>
+            <p>Estamos listos para atender sus consultas sobre eficiencia energética y soluciones sostenibles.</p>
+            
+            <p class="detail"><span class="icon">📧</span> **Correo Electrónico:** <a href="mailto:greencodesolutions@hotmail.com">greencodesolutions@hotmail.com</a></p>
+            <p class="detail"><span class="icon">📞</span> **Teléfono:** +34 685 453 698</p>
+            <p class="detail"><span class="icon">📍</span> **Dirección (Sede Central):** calle colon,51 - 46004,Valencia, España</p>
+        </section>
+
+        <section class="contact-form">
+            <h2>✍️ Formulario de Contacto</h2>
+            <form id="contactForm"> 
+                
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="ejemplo@suempresa.com" required>
+                
+                <label for="asunto">Asunto:</label>
+                <input type="text" id="asunto" name="asunto" placeholder="Ej: Consulta sobre Auditoría de Consumo Energético" required>
+
+                <label for="mensaje">Mensaje (Describa su proyecto o necesidad):</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+
+                <button type="submit">Solicitar Contacto</button>
+            </form>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                ✅ ¡Mensaje Enviado Correctamente! Le responderemos a la brevedad.
+            </div>
+            
+        </section>
+
+    </div>
+
     <footer>
-        & GreenCode - Todos los derechos reservados.
+        <p>&copy; 2025 GreenCodeSolutions. Transformando la IT con códigos más verdes.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Detiene el envío por defecto del formulario (importante para que no recargue la página)
+            event.preventDefault(); 
+            
+            // 1. Borra los datos del formulario (reset)
+            this.reset();
+
+            // 2. Oculta el formulario
+            this.style.display = 'none';
+
+            // 3. Muestra el mensaje de éxito
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Opcional: Después de 5 segundos, oculta el mensaje y vuelve a mostrar el formulario
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+                this.style.display = 'block';
+            }, 5000); 
+            
+        });
+    </script>
+
+
+    </main>
+    <footer class="footer">
+        © 2025 GreenCode Solutions — Todos los derechos reservados.
     </footer>
 </body>
 </html>
