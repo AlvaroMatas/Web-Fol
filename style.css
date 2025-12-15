@@ -376,8 +376,376 @@ footer {
     animation: pulse 2s infinite;
     border: 2px solid rgba(255,255,255,0.5);
 }
+/* --- Variables de Color y Resets Globales --- */
+:root {
+    --primary-green: #2e7d32;   /* Verde oscuro corporativo */
+    --secondary-green: #43a047; /* Verde medio para acentos y hover */
+    --light-green-bg: #f1f8e9;  /* Fondo verde muy claro */
+    --accent-green-border: #66bb6a; /* Borde verde brillante */
+    --text-dark: #333333;       /* Texto principal */
+    --text-light: #666666;      /* Texto secundario */
+    --white: #ffffff;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #f9fff9; /* Fondo general ligeramente verdoso */
+}
+
+/* --- Header y Navegación --- */
+.header {
+    background-color: var(--primary-green);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: sticky; /* Mantiene el menú visible al hacer scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active { /* Puedes añadir la clase .active al enlace actual */
+    color: var(--white);
+    border-bottom: 2px solid var(--accent-green-border);
+}
+
+/* --- Contenido Principal --- */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: calc(100vh - 160px); /* Asegura que el footer quede abajo */
+}
+
+section#soluciones h2 {
+    text-align: center;
+    color: var(--primary-green);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para el párrafo introductorio (complementa tu estilo en línea) */
+section#soluciones > p {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+}
+
+/* --- Tarjetas de Solución --- */
+.solution-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-top: 5px solid var(--primary-green); /* Línea superior verde */
+    transition: transform 0.3s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
+.solution-card h3 {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.solution-card h4 {
+    color: var(--secondary-green);
+    font-size: 1.2rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.solution-card p {
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.solution-card strong {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.solution-card ul {
+    margin-left: 25px;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.solution-card li {
+    margin-bottom: 8px;
+}
+
+/* --- Estilo Específico para la Tarjeta de "Soluciones Adicionales (ODS)" --- */
+/*
+   Usamos :last-child para seleccionar la tercera tarjeta y !important
+   para SOBREESCRIBIR los estilos azules en línea (style="...") de tu HTML.
+*/
+.solution-card:last-child {
+    /* Reemplaza el borde azul por uno verde claro */
+    border-left: 5px solid var(--accent-green-border) !important;
+    /* Reemplaza el fondo azul claro por uno verde claro */
+    background-color: var(--light-green-bg) !important;
+    /* Quitamos el borde superior estándar para que solo quede el lateral */
+    border-top: none;
+}
+
+.solution-card:last-child h3 {
+    color: var(--secondary-green); /* Un tono ligeramente distinto para el título */
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #1b4d1e; /* Un verde muy oscuro para el pie */
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design (Móviles) --- */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    section#soluciones h2 {
+        font-size: 1.8rem;
+    }
+
+    .solution-card {
+        padding: 20px;
+    }
+}
 @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
     100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* --- Variables de Color y Resets Globales --- */
+:root {
+    --primary-green: #2e7d32;   /* Verde oscuro corporativo */
+    --secondary-green: #43a047; /* Verde medio para acentos y hover */
+    --light-green-bg: #f1f8e9;  /* Fondo verde muy claro */
+    --accent-green-border: #66bb6a; /* Borde verde brillante */
+    --text-dark: #333333;       /* Texto principal */
+    --text-light: #666666;      /* Texto secundario */
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #f9fff9; /* Fondo general ligeramente verdoso */
+}
+
+/* --- Header y Navegación --- */
+.header {
+    background-color: var(--primary-green);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: sticky; /* Mantiene el menú visible al hacer scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+
+/* --- Contenido Principal --- */
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: calc(100vh - 160px); /* Asegura que el footer quede abajo */
+}
+
+section#soluciones h2 {
+    text-align: center;
+    color: var(--primary-green);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para el párrafo introductorio (complementa tu estilo en línea) */
+section#soluciones > p {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.8;
+}
+
+/* --- Tarjetas de Solución --- */
+.solution-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-top: 5px solid var(--primary-green); /* Línea superior verde */
+    transition: transform 0.3s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
+.solution-card h3 {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.solution-card h4 {
+    color: var(--secondary-green);
+    font-size: 1.2rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.solution-card p {
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.solution-card strong {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.solution-card ul {
+    margin-left: 25px;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.solution-card li {
+    margin-bottom: 8px;
+}
+
+/* --- Estilo Específico para la Tarjeta de "Soluciones Adicionales (ODS)" --- */
+/*
+   Usamos :last-child para seleccionar la tercera tarjeta y !important
+   para SOBREESCRIBIR los estilos azules en línea (style="...") de tu HTML.
+*/
+.solution-card:last-child {
+    /* Reemplaza el borde azul por uno verde claro */
+    border-left: 5px solid var(--accent-green-border) !important;
+    /* Reemplaza el fondo azul claro por uno verde claro */
+    background-color: var(--light-green-bg) !important;
+    /* Quitamos el borde superior estándar para que solo quede el lateral */
+    border-top: none;
+}
+
+.solution-card:last-child h3 {
+    color: var(--secondary-green); /* Un tono ligeramente distinto para el título */
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #1b4d1e; /* Un verde muy oscuro para el pie */
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design (Móviles) --- */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    section#soluciones h2 {
+        font-size: 1.8rem;
+    }
+
+    .solution-card {
+        padding: 20px;
+    }
 }
